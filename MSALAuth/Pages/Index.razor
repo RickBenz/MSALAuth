@@ -1,0 +1,16 @@
+﻿@page "/"
+@attribute [Route(Constants.PageRoute.Home)]
+
+    <AuthorizeView>
+        <Authorized>
+          <Dashboard/>
+        </Authorized>
+        <NotAuthorized>
+            <div>
+                <p>MSALAuth Refresh Error Test Application</p>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+
+    
+

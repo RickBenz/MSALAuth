@@ -1,0 +1,24 @@
+﻿@using MSALAuth.Services
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject AdminService adminService
+@attribute [Authorize]
+
+<h3>Welcome, @userName!</h3>
+<p>You are logged in.</p>
+
+
+@code {
+    private string? userName;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            userName = user.Identity.Name ?? "User";
+        }
+    }
+}

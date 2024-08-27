@@ -1,0 +1,12 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <div>
+            Logged in
+            <button class="btn btn-primary" @onclick="Logout">Logout</button>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <button class="btn btn-primary" @onclick="Login">Login</button>
+    </NotAuthorized>
+</AuthorizeView>
+
